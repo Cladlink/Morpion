@@ -3,6 +3,7 @@
  */
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.Arrays;
 
 public class ControlButton extends Control implements ActionListener
 {
@@ -16,21 +17,29 @@ public class ControlButton extends Control implements ActionListener
     }
     public void actionPerformed(ActionEvent e)
     {
-
         for(int i=0;i<plateau.length;i++)
         {
             for(int j=0;j<plateau[i].length;j++)
             {
-                if (e.getSource()==plateau[i][j])
+                if (e.getSource()==plateau[i][j] && plateau[i][j].getIcon() == cartes[0])
                 {
-                    plateau[i][j]=new JButton(cartes[2]);
-                    System.out.println(plateau[i][j].getIcon());
+                    model.placeItem(plateau, cartes, i, j);
+                    vue.setPlateau(plateau);
+                    refresh();
+                    if (model.checkVictory(plateau, i, j))
+                    {
+                        JOptionPane.showMessageDialog(vue, "victoire !");
+                        vue.getInitAttribut();
+                        refresh();
+                    }
                 }
             }
         }
-        vue.setPlateau(plateau);
+    }
+    private void refresh()
+    {
         vue.repaint();
-        vue.creerWidget();
+        vue.getCreerWidget();
         vue.setVisible(true);
     }
 }

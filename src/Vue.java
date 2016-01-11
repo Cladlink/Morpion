@@ -45,7 +45,8 @@ public class Vue extends JFrame
             }
         }
     }
-    public void creerWidget()
+    public void getInitAttribut(){ initAttribut(); }
+    private void creerWidget()
     {
         pano = new JPanel(new GridLayout(3, 3));
         int i, j;
@@ -58,7 +59,7 @@ public class Vue extends JFrame
         }
         setContentPane(pano);
     }
-
+    public void getCreerWidget(){ creerWidget(); }
     public void setButControler(ActionListener listener)
     {
         for(int i=0;i<plateau.length;i++)
