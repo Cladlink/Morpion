@@ -4,12 +4,12 @@
 import javax.swing.*;
 import java.awt.event.*;
 
-public class ControlMouse extends Control implements ActionListener
+public class ControlButton extends Control implements ActionListener
 {
     JButton[][] plateau = vue.getPlateau();
     ImageIcon[] cartes = vue.getCartes();
 
-    public ControlMouse(Model model, Vue vue)
+    public ControlButton(Model model, Vue vue)
     {
         super(model, vue);
         vue.setButControler(this);
@@ -24,13 +24,13 @@ public class ControlMouse extends Control implements ActionListener
                 if (e.getSource()==plateau[i][j])
                 {
                     plateau[i][j]=new JButton(cartes[2]);
-                    System.out.println("a");
+                    System.out.println(plateau[i][j].getIcon());
                 }
             }
         }
         vue.setPlateau(plateau);
         vue.repaint();
-        vue.getCreerWidget();
+        vue.creerWidget();
         vue.setVisible(true);
     }
 }

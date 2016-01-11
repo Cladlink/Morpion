@@ -25,32 +25,39 @@ public class Vue extends JFrame
     private JPanel pano;
     public Vue(Model model)
     {
-        InitAttribut();
-        CreerWidget();
+        initAttribut();
+        creerWidget();
 
         setSize(300, 300);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
     }
-    private void InitAttribut()
+    private void initAttribut()
     {
         plateau = new JButton[3][3];
+        int i, j;
+        for (i = 0; i < plateau.length; i++)
+        {
+            for (j = 0; j < plateau[i].length; j++)
+            {
+                plateau[i][j] = new JButton(cartes[0]);
+            }
+        }
     }
-    private void CreerWidget()
+    public void creerWidget()
     {
         pano = new JPanel(new GridLayout(3, 3));
-        for (int i=0; i<plateau.length;i++)
+        int i, j;
+        for (i=0; i<plateau.length;i++)
         {
-            for (int j=0; j<plateau[i].length;j++)
+            for (j=0; j<plateau[i].length;j++)
             {
-                plateau[i][j]= new JButton(cartes[0]);
                 pano.add(plateau[i][j]);
             }
         }
         setContentPane(pano);
     }
-    public void getCreerWidget(){ CreerWidget(); }
 
     public void setButControler(ActionListener listener)
     {

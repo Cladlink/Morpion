@@ -6,13 +6,13 @@
 
         private Model model;
         private Vue vue;
-        private ControlMouse controlMouse;
+        private ControlButton controlButton;
 
 
         public ControlGroup(Model model)
         {
             this.model = model;
             vue = new Vue(model);
-            controlMouse = new ControlMouse(model, vue);
+            controlButton = new ControlButton(model, vue);
         }
     }
