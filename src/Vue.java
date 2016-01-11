@@ -58,7 +58,6 @@ public class Vue extends JFrame
         {
             for(int j=0;j<plateau[i].length;j++)
             {
-
                 plateau[i][j].addActionListener(listener);
             }
         }
