@@ -26,7 +26,7 @@ public class ControlButton extends Control implements ActionListener
                     model.placeItem(plateau, cartes, i, j);
                     vue.setPlateau(plateau);
                     refresh();
-                    if (model.checkVictory(plateau, i, j))
+                    if (model.checkVictory(plateau, cartes, i, j))
                     {
                         JOptionPane.showMessageDialog(vue, "victoire !");
                         vue.getInitAttribut();
